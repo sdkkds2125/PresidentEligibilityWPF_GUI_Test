@@ -24,5 +24,22 @@ namespace PresidentEligibilityWPF_GUI_Test
         {
             InitializeComponent();
         }
+
+        private void eligibility_click(object sender, RoutedEventArgs e)
+        {
+            int temp = 0;
+            if (naturalBornCheckbox.IsChecked == true
+                && (DateTime.Now.Year - Int32.Parse(birthTextBox.Text, (System.Globalization.NumberStyles)temp) >= 35)
+                && Int32.Parse(residedTextBox.Text, (System.Globalization.NumberStyles)temp) >= 14 &&
+                Int32.Parse(priorTermsTextBox.Text, (System.Globalization.NumberStyles)temp) < 2 &&
+                Int32.Parse(priorTermsTextBox.Text, (System.Globalization.NumberStyles)temp) > -1
+                && rebelledCheckbox.IsChecked == false)
+            {
+                MessageBox.Show("You are eligible to be president! :)");
+            }
+            else {
+                MessageBox.Show("You are not eligible to be president :(");
+            }
+        }
     }
 }
